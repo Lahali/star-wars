@@ -1,30 +1,12 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 
-const Starship = () => {
+const Starship = ({ getShipName, getShipModel }) => {
 
-  const [getShip, setGetShip] = useState([]);
-
- 
-  const getShipName = () =>  axios
-    .get(`https://swapi.dev/api/starships/?page=1`)
-    .then((response) => {
-      setGetShip(response.data.results);
-    })
-    .catch(() => {
-      console.log("maaaaal");
-    });
-
-  useEffect(() => {
-    getShipName()
-  }, []);
-
-
-  console.log(getShip);
 
   return (
     <div>
-      <p>hello</p>
+      <p>Starship name: {getShipName}</p>
+      <p>Starship model: {getShipModel}</p>
     </div>
   );
 };
