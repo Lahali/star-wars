@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Starship from "./components/Starship";
+import Header from "./components/Header";
+
 
 function App() {
   const [getShip, setGetShip] = useState([]);
@@ -23,6 +25,7 @@ function App() {
 
   return (
     <div>
+      <Header/>
       {getShip.map((item, index) => (
         <Starship
           key={index}
