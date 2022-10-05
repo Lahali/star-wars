@@ -5,34 +5,26 @@ const Header = () => {
   return (
     <>
       <div className="navbar bg-base-100">
-        <div className="navbar-start">
-          {/* <div className="dropdown">
-      <label tabIndex={0} className="btn btn-ghost btn-circle">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
-      </label>
-    </div> */}
-        </div>
+        <div className="navbar-start"></div>
         <div className="navbar-center">
           <img className="w-52" src={starwars} alt="star wars logo" />
         </div>
-        <div className="navbar-end">
-          <div className="form-control">
-            <input
-              type="text"
-              placeholder="Search"
-              className="input input-bordered"
-            />
-          </div>
+        <div className="navbar-end p-2">
+          <button>LOG IN</button>
+          <p className="mx-3 text-zinc-500">//</p>
+          <button>SIGN UP</button>
         </div>
       </div>
+      <nav className="flex justify-center">
+        <div className="mx-4 p-2">
+          <button className="hover:font-bold active:underline underline-offset-8">HOME</button>
+        </div>
+        <div className="mx-4 p-2">
+          <button className="hover:font-bold active:underline underline-offset-8">SPACESHIPS</button>
+        </div>
+      </nav>
     </>
   );
 };
 
 export default Header;
-
-{
-  /* <nav>
-  <img src={starwars} alt="star wars logo" />
-</nav> */
-}
