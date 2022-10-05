@@ -24,7 +24,7 @@ function App() {
   console.log(getShip);
 
   return (
-    <div>
+    <>
       <Header/>
       {getShip.map((item, index) => (
         <Starship
@@ -33,7 +33,7 @@ function App() {
           getShipModel={item.model}
         />
       ))}
-    </div>
+    </>
   );
 }
 
