@@ -26,6 +26,8 @@ function App() {
   return (
     <>
       <Header/>
+    <div className="p-4 mr-4 grid grid-rows-1 grid-cols-6">
+
       {getShip.map((item, index) => (
         <Starship
           key={index}
@@ -33,6 +35,7 @@ function App() {
           getShipModel={item.model}
         />
       ))}
+    </div>
     </>
   );
 }
