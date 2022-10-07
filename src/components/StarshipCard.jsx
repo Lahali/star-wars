@@ -1,20 +1,43 @@
-import React from 'react'
-
+import React from "react";
+import Header from "./Header"
 const StarshipCard = () => {
+
+  const getShipImg = () => {
+    
+  }
+
+
   return (
-    <div className="card max-w-xs bg-base-100 mt-4 h-min rounded-xl">
-    <figure>
-      <img src="https://placeimg.com/400/400/arch" alt="Shoes" />
-    </figure>
-    <div className="card-body p-2 bg-slate-800  border-t-4 border-t-pink-400">
-      <h2 className="card-title mt-4 m-2">{getShipName}</h2>
-      <p className="mx-2">Model: {getShipModel}</p>
-      <div className="card-actions justify-start">
-        <div className="badge text-pink-400 bg-none">DATABANK</div>
+    <>
+    <Header/>
+    <div className="grid grid-cols-6">
+
+    <div className="card bg-zinc-800 col-start-2 col-end-6  rounded-md">
+      <figure>
+        <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+      </figure>
+      <div className="card-body p-2 m-3">
+        <h2 className="card-title">Shoes!</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque a
+          quod facere necessitatibus, accusamus culpa magni nobis consectetur
+          consequuntur sequi officia blanditiis debitis tempore est minus
+          laborum nam inventore possimus.
+        </p>
+        <p className="">Model:</p>
+        <p className="">Cost incredits:</p>
+        <p className="">Atmospheric Speed:</p>
+        <p className="">Model:</p>
+
+
+        <div className="card-actions justify-end">
+          {/* <button className="btn btn-primary"></button> */}
+        </div>
       </div>
     </div>
-  </div>
-  )
-}
+    </div>
+    </>
+  );
+};
 
-export default StarshipCard
+export default StarshipCard;
