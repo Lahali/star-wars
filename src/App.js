@@ -12,7 +12,7 @@ function App() {
           {/* la primera parte de la ruta llamará al welcome */}
           <Route path="/" element={<Main />} />
           <Route path="/starships" element={<Main />} />
-          <Route path="/starships/:id" element={<StarshipCard />} />
+          <Route path="/starships/:name/:id" element={<StarshipCard/>} />
         </Routes>
       </ApiProvider>
     </>

@@ -1,37 +1,19 @@
-import { useState, useEffect, useContext } from "react";
-import axios from "axios";
+import { useEffect } from "react";
 import Starship from "../components/Starship";
 import Header from "../components/Header";
-import { useShipContext, useShipListContext } from "../context/ApiProvider";
+import { useCurrentPage, useFilteredShips, usePageContext, useShipContext, useShipListContext } from "../context/ApiProvider";
+import { useParams } from "react-router-dom";
 
 const Main = () => {
 
-  // const {getShip} = useContext(ContextApi)
-
-  // const [getShip, setGetShip] = useState([]);
-
-  // const getShipList = () =>
-  //   axios
-  //     .get(`https://swapi.dev/api/starships/?page=1`)
-  //     .then((response) => {
-  //       setGetShip(response.data.results);
-  //     })
-  //     .catch(() => {
-  //       console.log("maaaaal");
-  //     });
-
-  // useEffect(() => {
-  //   getShipList();
-  // }, []);
-
-  // console.log(getShip);
-
-  const shipList = useShipListContext()
-  const getShipList = useShipContext()
+  const shipList = useShipListContext();
+  const getShipList = useShipContext();
+  const changeNumberPage = usePageContext()
+  const currentPage = useCurrentPage()
 
   useEffect(() => {
-    getShipList()
-  }, [])
+    getShipList();
+  }, []);
 
   return (
     <div>
@@ -45,6 +27,7 @@ const Main = () => {
             getShipUrl={item.url}
           />
         ))}
+      <button onClick={changeNumberPage}>más naves</button>
       </div>
     </div>
   );

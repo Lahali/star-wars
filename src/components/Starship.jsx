@@ -2,13 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Starship = ({ getShipName, getShipModel, getShipUrl }) => {
- const getId = getShipUrl.split("/")
-  
+  const getId = getShipUrl.split("/");
+
   return (
-    <div className="bg-zinc-800 col-start-2 col-end-6 p-2 m-3">
-      <Link to={`/starships/${getId[5]}`}>
-        <h2 className="card-title mt-4 m-2">{getShipName}</h2>
-        <p className="mx-2">Model: {getShipModel}</p>
+    <div className="bg-zinc-800 col-start-2 col-end-6 m-3 items-strech">
+      <Link to={`/starships/${getShipName}/${getId[5]}`}>
+        <img
+          className="h-28 w-auto float-left mr-4"
+          src={`https://starwars-visualguide.com/assets/img/starships/${getId[5]}.jpg`}
+          alt="star wars starship"
+          onError={(e) =>
+            (e.target.src =
+              "https://starwars-visualguide.com/assets/img/big-placeholder.jpg")
+          }
+        />
+        <div className="mx-3 p-4">
+          <h2 className="card-title">{getShipName}</h2>
+          <p className="mx-2">Model: {getShipModel}</p>
+        </div>
       </Link>
     </div>
   );
