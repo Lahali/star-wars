@@ -1,18 +1,20 @@
 import { Route, Routes } from "react-router-dom";
-import StarshipCard from "./components/StarshipCard";
+
+import StarshipCard from "./pages/StarshipCard";
 import Main from "./pages/Main";
+import { ApiProvider } from "./context/ApiProvider";
 
 function App() {
-
   return (
     <>
-      <Routes>
-        {/* la primera parte de la ruta llamará al welcome */}
-        <Route path="/" element={<Main/>}/> 
-        <Route path="/starships" element={<Main/>}/>
-        <Route path="/starships/:id" element={<StarshipCard/>}/>
-      </Routes>
-      
+      <ApiProvider>
+        <Routes>
+          {/* la primera parte de la ruta llamará al welcome */}
+          <Route path="/" element={<Main />} />
+          <Route path="/starships" element={<Main />} />
+          <Route path="/starships/:id" element={<StarshipCard />} />
+        </Routes>
+      </ApiProvider>
     </>
   );
 }
