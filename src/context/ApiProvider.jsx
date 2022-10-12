@@ -1,15 +1,19 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 
 const shipContext = React.createContext();
 const shipListContext = React.createContext();
+const shipIdContext = React.createContext();
 
+// hooks personalizados
 export function useShipContext() {
   return useContext(shipContext);
 }
-
 export function useShipListContext() {
   return useContext(shipListContext);
+}
+export function useShipIdContext() {
+  return useContext(shipIdContext);
 }
 
 export const ApiProvider = ({ children }) => {
@@ -24,15 +28,12 @@ export const ApiProvider = ({ children }) => {
       .catch(() => console.log("la has liado"));
   };
 
-  // useEffect(() => {
-  //     getShipList()
-  // }, [])
 
   return (
     <div>
       <shipListContext.Provider value={shipList}>
         <shipContext.Provider value={getShipList}>
-          {children}
+            {children}
         </shipContext.Provider>
       </shipListContext.Provider>
     </div>
