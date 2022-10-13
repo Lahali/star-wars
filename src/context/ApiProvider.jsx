@@ -30,7 +30,7 @@ export const ApiProvider = ({ children }) => {
 
   const changeNumberPage = (action) => {
     action === "increase" ? setPage(page + 1) : setPage(page - 1);
-    if(page < 1) return
+    if(page < 1 || page > 5) return
   };
 
   const getShipList = () => {

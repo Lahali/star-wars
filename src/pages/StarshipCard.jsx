@@ -9,11 +9,11 @@ const StarshipCard = () => {
   const shipList = useShipListContext()
   
   
-//   const getName = shipList.map((item) => {
-//     if ({id} === getId[5]) {
-//       return item.name }
-//   })
-// console.log(getName)
+  const getName = shipList.map((item) => {
+    if ({id} === id) {
+      return item.name }
+  })
+console.log("hello", getName)
 
   return (
     <>
@@ -29,7 +29,7 @@ const StarshipCard = () => {
             />
           </figure>
           <div className="card-body p-4 my-3">
-            <h2 className="card-title"></h2>
+            <h2 className="card-title">{getName}</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Doloremque a quod facere necessitatibus, accusamus culpa magni
@@ -41,6 +41,7 @@ const StarshipCard = () => {
             <p className="">Atmospheric Speed:</p>
 
             <div className="card-actions justify-end">
+              {/* <button className="btn btn-primary"></button> */}
             </div>
           </div>
         </div>
