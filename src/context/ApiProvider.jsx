@@ -7,7 +7,6 @@ const shipIdContext = React.createContext();
 const pageContext = React.createContext();
 const currentPageContext = React.createContext();
 
-
 // hooks personalizados
 export function useShipContext() {
   return useContext(shipContext);
@@ -29,8 +28,9 @@ export const ApiProvider = ({ children }) => {
   const [shipList, setShipList] = useState([]);
   const [page, setPage] = useState(1);
 
-  const changeNumberPage = () => {
-    setPage(page + 1);
+  const changeNumberPage = (action) => {
+    action === "increase" ? setPage(page + 1) : setPage(page - 1);
+    if(page < 1) return
   };
 
   const getShipList = () => {
@@ -47,11 +47,9 @@ export const ApiProvider = ({ children }) => {
       <shipListContext.Provider value={shipList}>
         <shipContext.Provider value={getShipList}>
           <pageContext.Provider value={changeNumberPage}>
-            
             <currentPageContext.Provider value={page}>
               {children}
             </currentPageContext.Provider>
-            
           </pageContext.Provider>
         </shipContext.Provider>
       </shipListContext.Provider>

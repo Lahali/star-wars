@@ -6,12 +6,14 @@ import { useShipListContext } from "../context/ApiProvider";
 const StarshipCard = () => {
 
   const {id} = useParams()
-  const {name} = useParams()
   const shipList = useShipListContext()
-
-
-  const found = shipList.find((element) => element.name === {name})
-  console.log(found)
+  
+  
+//   const getName = shipList.map((item) => {
+//     if ({id} === getId[5]) {
+//       return item.name }
+//   })
+// console.log(getName)
 
   return (
     <>
@@ -27,7 +29,7 @@ const StarshipCard = () => {
             />
           </figure>
           <div className="card-body p-4 my-3">
-            <h2 className="card-title">{found}</h2>
+            <h2 className="card-title"></h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Doloremque a quod facere necessitatibus, accusamus culpa magni
@@ -39,7 +41,6 @@ const StarshipCard = () => {
             <p className="">Atmospheric Speed:</p>
 
             <div className="card-actions justify-end">
-              {/* <button className="btn btn-primary"></button> */}
             </div>
           </div>
         </div>

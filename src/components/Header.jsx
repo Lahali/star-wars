@@ -17,10 +17,10 @@ const Header = () => {
       </div>
       <nav className="flex justify-center">
         <div className="mx-4 p-2">
-          <button className="hover:font-bold active:underline underline-offset-8">HOME</button>
+          <button className="hover:text-white text-zinc-400  active:underline underline-offset-8">HOME</button>
         </div>
         <div className="mx-4 p-2">
-          <button className="hover:font-bold active:underline underline-offset-8">SPACESHIPS</button>
+          <button className="hover:text-white  text-zinc-400 active:underline underline-offset-8">SPACESHIPS</button>
         </div>
       </nav>
     </>

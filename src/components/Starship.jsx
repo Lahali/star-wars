@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Starship = ({ getShipName, getShipModel, getShipUrl }) => {
   const getId = getShipUrl.split("/");
-
+  
   return (
     <div className="bg-zinc-800 col-start-2 col-end-6 m-3 items-strech">
       <Link to={`/starships/${getShipName}/${getId[5]}`}>
