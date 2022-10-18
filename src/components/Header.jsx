@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import starwars from "../assets/images/starwars-logo.png";
 
 const Header = () => {
@@ -17,10 +18,18 @@ const Header = () => {
       </div>
       <nav className="flex justify-center">
         <div className="mx-4 p-2">
-          <button className="hover:text-white text-zinc-400  active:underline underline-offset-8">HOME</button>
+          <Link to={"/"}>
+            <button className="hover:text-white text-zinc-400  active:underline underline-offset-8">
+              HOME
+            </button>
+          </Link>
         </div>
         <div className="mx-4 p-2">
-          <button className="hover:text-white  text-zinc-400 active:underline underline-offset-8">SPACESHIPS</button>
+          <Link to={"/starships"}>
+            <button className="hover:text-white  text-zinc-400 active:underline underline-offset-8">
+              SPACESHIPS
+            </button>
+          </Link>
         </div>
       </nav>
     </>
