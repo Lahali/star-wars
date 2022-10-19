@@ -2,13 +2,12 @@ import { getByTestId } from "@testing-library/react";
 import React, {useEffect} from "react";
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
-import { useShipListContext,useShipContext } from "../context/ApiProvider";
+import { useGetData } from "../context/ApiProvider";
 
 const StarshipCard = () => {
 
   const {id} = useParams()
-  const shipList = useShipListContext()
-  const getShipList = useShipContext();
+  const { shipList} = useGetData();
   const {name} = useParams()
 
   const shipData = shipList.filter((item) => item.name === name ? item.model : "")

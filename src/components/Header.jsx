@@ -1,8 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import starwars from "../assets/images/starwars-logo.png";
+// import { useIsLoginOpen, useChangeLoginModal } from "../context/ApiProvider";
 
 const Header = () => {
+
+  // const isLoginOpen = useIsLoginOpen()
+  // const changeLoginModal = useChangeLoginModal()
+  
+
   return (
     <>
       <div className="navbar bg-base-100">
@@ -11,7 +17,9 @@ const Header = () => {
           <img className="w-52" src={starwars} alt="star wars logo" />
         </div>
         <div className="navbar-end p-2">
-          <button>LOG IN</button>
+          <Link to={"/starships/login"}>
+            <button>LOG IN</button>
+          </Link>
           <p className="mx-3 text-zinc-500">//</p>
           <button>SIGN UP</button>
         </div>
