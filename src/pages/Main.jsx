@@ -4,13 +4,7 @@ import Header from "../components/Header";
 import { useGetData } from "../context/ApiProvider";
 
 const Main = () => {
-  // const shipList = useShipListContext();
-  // const getShipList = useShipContext();
-  // const changeNumberPage = usePageContext();
-  // const currentPage = useCurrentPage();
-
-  const { shipList, getShipList, changeNumberPage, page } =
-    useGetData();
+  const { shipList, getShipList, changeNumberPage, page } = useGetData();
 
   useEffect(() => {
     getShipList();
@@ -37,7 +31,8 @@ const Main = () => {
           go back
         </button>
         <button
-          className="w-28 rounded-sm border-2 text-zinc-400 border-zinc-400 hover:text-white p-3 m-5"
+          className="w-28 rounded-sm border-2 text-zinc-400 border-zinc-400 hover:text-white p-3 m-5 border-1"
+
           onClick={() => changeNumberPage("increase")}
         >
           view more

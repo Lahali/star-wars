@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
 
-// hooks personalizados
 const dataContext = React.createContext();
 
+// hook personalizado
 export function useGetData() {
   return useContext(dataContext);
 }
@@ -12,7 +12,6 @@ export const ApiProvider = ({ children }) => {
   const [shipList, setShipList] = useState([]);
   const [page, setPage] = useState(1);
 
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   const changeNumberPage = (action) => {
     action === "increase" ? setPage(page + 1) : setPage(page - 1);
@@ -26,11 +25,6 @@ export const ApiProvider = ({ children }) => {
         setShipList(response.data.results);
       })
       .catch(() => console.log("la has liado"));
-  };
-
-  const changeLoginModal = (event) => {
-    event.preventDefault();
-    setIsLoginOpen(!isLoginOpen);
   };
 
   return (

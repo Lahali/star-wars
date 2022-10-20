@@ -1,13 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import starwars from "../assets/images/starwars-logo.png";
-// import { useIsLoginOpen, useChangeLoginModal } from "../context/ApiProvider";
 
 const Header = () => {
+ 
 
-  // const isLoginOpen = useIsLoginOpen()
-  // const changeLoginModal = useChangeLoginModal()
-  
+  const activeLink = "text-yellow-700";
+  const normalLink = "";
 
   return (
     <>
@@ -21,23 +20,26 @@ const Header = () => {
             <button>LOG IN</button>
           </Link>
           <p className="mx-3 text-zinc-500">//</p>
-          <button>SIGN UP</button>
+          <Link to={"/starships/signup"}>
+            <button>SIGN UP</button>
+          </Link>
         </div>
       </div>
       <nav className="flex justify-center">
         <div className="mx-4 p-2">
-          <Link to={"/"}>
-            <button className="hover:text-white text-zinc-400  active:underline underline-offset-8">
-              HOME
-            </button>
-          </Link>
+          <NavLink to={"/"} className="active: underline-offset-8">
+            <button className="hover:text-white text-zinc-400">HOME</button>
+          </NavLink>
         </div>
         <div className="mx-4 p-2">
-          <Link to={"/starships"}>
-            <button className="hover:text-white  text-zinc-400 active:underline underline-offset-8">
+          <NavLink
+            to={"/starships"}
+            className={({ isActive }) => [isActive ? "underline" : ""].filter(Boolean).join(" ")}
+          >
+            <button className="hover:text-white  text-zinc-400">
               SPACESHIPS
             </button>
-          </Link>
+          </NavLink>
         </div>
       </nav>
     </>

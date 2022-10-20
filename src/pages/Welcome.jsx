@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logoYellow from "../assets/images/Star_Wars_Logo.svg.png";
 
+
 const Welcome = () => {
   return (
     <>
