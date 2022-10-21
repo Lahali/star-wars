@@ -1,50 +1,61 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState, useEffect } from "react";
 
-// const modalContext = React.createContext()
+const userContext = React.createContext();
 
-// export function useModalContext() {
-//     return useContext(modalContext)
-// }
+export function useUserData() {
+  return useContext(userContext);
+}
 
-export const UserProvider = ({children}) => {
+export const UserProvider = ({ children }) => {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
 
-    const [user, setUser] = useState({
-        email: '',
-        password: '',
-    })
+  const [userArray, setUserArray] = useState([]);
 
-    const [newUser, setNewUser] = useState([])
-
-
-
-
-
-const handleSubmit = (event) =>{
-    event.preventDefault()
-    if([email, password].includes('')) {
-        return alert("Es obligatorio rellenar todos los campos")
-    }
+  const handleMailChange = (e) => {
     setUser({
-        email: '',
-        password:''
-    })
-    usersSaved(newUser)
-    setNewUser([...newUser])
-}
+      ...user,
+      email: e.target.value,
+    });
+  };
+  const handlePassChange = (e) => {
+    setUser({
+      ...user,
+      password: e.target.value,
+    });
+  };
 
-const usersSaved = (allUsers) => {
-    localStorage.setItem("users", JSON.stringify(allUsers))
-}
-useEffect(() => {}, [user])
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // con esta línea vaciamos de vuelta los inputs
+    setUser({ email: "", password: "" });
+    setUserArray([...userArray, user]);
+    saveUsers(userArray);
+  };
 
+  console.log(userArray);
 
-
-    
+  const saveUsers = (totalUsers) => {
+    localStorage.setItem("users", JSON.stringify(totalUsers));
+  };
+  useEffect(() => {}, [userArray]);
 
   return (
     <div>
-  
+      <userContext.Provider
+        value={{
+          handleMailChange,
+          handlePassChange,
+          handleSubmit,
+          user,
+          userArray,
+        }}
+      >
+        {children}
+      </userContext.Provider>
+      UserProvider
     </div>
-  )
-}
-
+  );
+};
