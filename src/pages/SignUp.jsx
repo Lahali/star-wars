@@ -1,42 +1,50 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logoYellow from "../assets/images/pngegg.png";
 
-
 const SignUp = () => {
-
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
 
-  const [userArray, setUserArray] = useState([])
+  const [userArray, setUserArray] = useState([]);
 
   const handleMailChange = (e) => {
     setUser({
-      ...user, 
-      email: e.target.value
-    })
-  }
+      ...user,
+      email: e.target.value,
+    });
+  };
   const handlePassChange = (e) => {
     setUser({
       ...user,
-      password: e.target.value
-    })
-  }
+      password: e.target.value,
+    });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setUserArray(user)
-  }
+    e.preventDefault();
+    // con esta línea vaciamos de vuelta los inputs
+    setUser({ email: "", password: "" });
+    setUserArray([...userArray, user]);
+    saveUsers(userArray)
+  };
 
-  console.log(user)
-  console.log("chuski",userArray)
+  console.log(userArray)
+
+  const saveUsers = (totalUsers) => {
+    localStorage.setItem("users", JSON.stringify(totalUsers))
+  }
+  useEffect(() => {}, [userArray])
 
   return (
     <>
       <div className="flex justify-center items-center content-center absolute w-full top-0 left-0 min-h-screen bg-black-t">
-        <form onSubmit={handleSubmit} className="p-10 rounded-sm w-fit bg-zinc-900">
+        <form
+          onSubmit={handleSubmit}
+          className="p-10 rounded-sm w-fit bg-zinc-900"
+        >
           <Link to={"/starships"}>
             <p className="text-end text-2xl text-zinc-600">X</p>
           </Link>
@@ -51,10 +59,7 @@ const SignUp = () => {
               type="text"
               name="email"
               placeholder="user"
-
               value={user.email}
-
-
               onChange={handleMailChange}
             />
           </div>
@@ -65,14 +70,14 @@ const SignUp = () => {
               type="password"
               name="password"
               placeholder="password"
-
               value={user.password}
-
-
               onChange={handlePassChange}
             />
           </div>
-          <button type="submit" className="rounded w-60 p-1 bg-zinc-600 ml-2 mt-5 hover:bg-zinc-400">
+          <button
+            type="submit"
+            className="rounded w-60 p-1 bg-zinc-600 ml-2 mt-5 hover:bg-zinc-400"
+          >
             SEND
           </button>
         </form>
