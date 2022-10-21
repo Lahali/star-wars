@@ -30,8 +30,7 @@ export const ApiProvider = ({ children }) => {
   return (
     <div>
       <dataContext.Provider
-        value={{ shipList, getShipList, changeNumberPage, page }}
-      >
+        value={{ shipList, getShipList, changeNumberPage, page }}>
         {children}
       </dataContext.Provider>
     </div>
