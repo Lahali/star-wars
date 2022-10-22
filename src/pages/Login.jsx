@@ -1,8 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logoYellow from "../assets/images/pngegg.png";
+import { useUserData } from "../context/UserProvider";
 
 const Login = () => {
+  // const { getSavedUsers, user } = useUserData();
+
+  // const [getUser, setGetUser] = useState({ email: "", password: "" });
+
+  // useEffect(() => {
+  //   getSavedUsers();
+  // }, []);
+
+
+
+// const handleSubmit = (e) => {
+//   e.preventDefault()
+//   if (user.email === getUser.email) {
+//     console.log("bien");
+//   }
+// }
+
   return (
     <>
       <div className="flex justify-center items-center content-center absolute w-full top-0 left-0 min-h-screen bg-black-t">
@@ -17,6 +35,7 @@ const Login = () => {
               className="rounded-sm w-60 p-1 mt-2 bg-zinc-600 active:border-1 border-indigo-700 border-t-pink-100"
               type="text"
               placeholder="user"
+            
             />
           </div>
           <div className="text-center">
@@ -27,7 +46,10 @@ const Login = () => {
               placeholder="password"
             />
           </div>
-          <button className="rounded w-60 p-1 bg-zinc-600 ml-2 mt-5 hover:bg-zinc-400">
+          <button
+            className="rounded w-60 p-1 bg-zinc-600 ml-2 mt-5 hover:bg-zinc-400"
+         
+          >
             SEND
           </button>
         </form>

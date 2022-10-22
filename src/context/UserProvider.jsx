@@ -29,6 +29,9 @@ export const UserProvider = ({ children }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if([user.email, user.password].includes('')) {
+      return alert("Todos los datos son obligatorios")
+    }
     // con esta línea vaciamos de vuelta los inputs
     setUser({ email: "", password: "" });
     setUserArray([...userArray, user]);
@@ -42,6 +45,16 @@ export const UserProvider = ({ children }) => {
   };
   useEffect(() => {}, [userArray]);
 
+  // datos a consumir
+  const getSavedUsers = () => {
+    const newUser = JSON.stringify(localStorage.getItem("user"))
+    newUser && setUser(newUser)
+  }
+  // useEffect(() => {
+  //   getSavedUsers()
+  // }, [])
+
+
   return (
     <div>
       <userContext.Provider
@@ -49,6 +62,7 @@ export const UserProvider = ({ children }) => {
           handleMailChange,
           handlePassChange,
           handleSubmit,
+          getSavedUsers,
           user
         }}
       >
