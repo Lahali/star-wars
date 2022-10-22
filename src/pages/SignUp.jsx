@@ -1,42 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logoYellow from "../assets/images/pngegg.png";
+import { useUserData } from "../context/UserProvider";
 
 const SignUp = () => {
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
-
-  const [userArray, setUserArray] = useState([]);
-
-  const handleMailChange = (e) => {
-    setUser({
-      ...user,
-      email: e.target.value,
-    });
-  };
-  const handlePassChange = (e) => {
-    setUser({
-      ...user,
-      password: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // con esta línea vaciamos de vuelta los inputs
-    setUser({ email: "", password: "" });
-    setUserArray([...userArray, user]);
-    saveUsers(userArray)
-  };
-
-  console.log(userArray)
-
-  const saveUsers = (totalUsers) => {
-    localStorage.setItem("users", JSON.stringify(totalUsers))
-  }
-  useEffect(() => {}, [userArray])
+   const {handleMailChange,
+    handlePassChange,
+    handleSubmit,
+    user} = useUserData()
 
   return (
     <>

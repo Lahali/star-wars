@@ -49,13 +49,11 @@ export const UserProvider = ({ children }) => {
           handleMailChange,
           handlePassChange,
           handleSubmit,
-          user,
-          userArray,
+          user
         }}
       >
         {children}
       </userContext.Provider>
-      UserProvider
     </div>
   );
 };
