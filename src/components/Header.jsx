@@ -16,11 +16,11 @@ const Header = () => {
           <img className="w-52" src={starwars} alt="star wars logo" />
         </div>
         <div className="navbar-end p-2">
-          <Link to={"/starships/login"}>
+          <Link to={"/login"}>
             <button>LOG IN</button>
           </Link>
           <p className="mx-3 text-zinc-500">//</p>
-          <Link to={"/starships/signup"}>
+          <Link to={"/signup"}>
             <button>SIGN UP</button>
           </Link>
         </div>

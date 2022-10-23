@@ -15,15 +15,16 @@ export const UserProvider = ({ children }) => {
   });
 
   const [userArray, setUserArray] = useState([]);
-  const [userExists, setUserExists] = useState(false)
 
   const handleMailChange = (e) => {
+    e.preventDefault()
     setUser({
       ...user,
       email: e.target.value,
     });
   };
   const handlePassChange = (e) => {
+    e.preventDefault()
     setUser({
       ...user,
       password: e.target.value,
@@ -31,31 +32,44 @@ export const UserProvider = ({ children }) => {
   };
 
   const verifyInputs = () => {
-    if([user.email, user.password].includes('')) {
-      return alert("Todos los datos son obligatorios")
+    if ([user.email, user.password].includes("")) {
+      return alert("Todos los datos son obligatorios");
     }
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    verifyInputs()
+    verifyInputs();
     // con esta línea vaciamos de vuelta los inputs
     setUser({ email: "", password: "" });
     setUserArray([...userArray, user]);
     saveUsers(userArray);
+    console.log(userArray);
   };
+
+  // const findUser = userArray.map((item) => {
+  //  if ( item.email === user.email && item.password === user.password) {
+  //  setUserExists(true)
+  //   console.log("hey");
+  //  }
+  // });
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    verifyInputs()
+    verifyInputs();
     userArray.map((item) => {
       if (item.email === user.email && item.password === user.password) {
-        return <Navigate to="/starships"/>
+        return console.log("eeeeooo");
+        //  setUserExists(!userExists)
+        //  return console.log(userExists, "existo")
+        // return <Navigate to="/starships"/>
       } else {
-        return alert("algo no coincide")
+        return alert("algo no coincide");
       }
     });
   };
+
+  
 
   const saveUsers = (totalUsers) => {
     localStorage.setItem("users", JSON.stringify(totalUsers));
@@ -64,13 +78,12 @@ export const UserProvider = ({ children }) => {
 
   // datos a consumir
   const getSavedUsers = () => {
-    const newUser = JSON.stringify(localStorage.getItem("user"))
-    newUser && setUser(newUser)
-  }
+    const newUser = JSON.stringify(localStorage.getItem("user"));
+    newUser && setUser(newUser);
+  };
   useEffect(() => {
-    getSavedUsers()
-  }, [])
-
+    getSavedUsers();
+  }, []);
 
   return (
     <div>
@@ -82,8 +95,7 @@ export const UserProvider = ({ children }) => {
           getSavedUsers,
           handleLoginSubmit,
           user,
-          userExists,
-          userArray
+          userArray,
         }}
       >
         {children}

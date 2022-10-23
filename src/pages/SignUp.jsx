@@ -43,14 +43,14 @@ const SignUp = () => {
               onChange={handlePassChange}
             />
           </div>
-          <Link to={"/login"}>
+          {/* <Link to={"/login"}> */}
             <button
               type="submit"
               className="rounded w-60 p-1 bg-zinc-600 ml-2 mt-5 hover:bg-zinc-400"
             >
               SEND
             </button>
-          </Link>
+          {/* </Link> */}
         </form>
       </div>
     </>

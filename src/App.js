@@ -16,10 +16,10 @@ function App() {
         <UserProvider>
           <Routes>
             <Route path="/" element={<Welcome />} />
-            <Route element={<ProtectedRoute />}>
+            {/* <Route element={<ProtectedRoute />}> */}
               <Route path="/starships" element={<Main />} />
               <Route path="/starships/:name/:id" element={<StarshipCard />} />
-            </Route>
+            {/* </Route> */}
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
           </Routes>
