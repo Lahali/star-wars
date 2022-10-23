@@ -4,15 +4,8 @@ import logoYellow from "../assets/images/pngegg.png";
 import { useUserData } from "../context/UserProvider";
 
 const Login = () => {
-  const {handleMailChange,
-    handlePassChange,
-    user, handleLoginSubmit } = useUserData();
-
-
-
-
-
-
+  const { handleMailChange, handlePassChange, user, handleLoginSubmit } =
+    useUserData();
 
   return (
     <>
@@ -45,12 +38,14 @@ const Login = () => {
               onChange={handlePassChange}
             />
           </div>
-          <button
-            className="rounded w-60 p-1 bg-zinc-600 ml-2 mt-5 hover:bg-zinc-400"
-            type="submit"
-          >
-            SEND
-          </button>
+          <Link to={"/starships"}>
+            <button
+              className="rounded w-60 p-1 bg-zinc-600 ml-2 mt-5 hover:bg-zinc-400"
+              type="submit"
+            >
+              SEND
+            </button>
+          </Link>
         </form>
       </div>
     </>

@@ -10,7 +10,7 @@ const Welcome = () => {
       <div className="flex p-5 justify-center content-center">
         <img className="w-1/3 " src={logoYellow} />
       </div>
-      <Link to={"/starships"}>
+      <Link to={"/signup"}>
         <p className="text-center text-yellow-300 text-2xl">entrar</p>
       </Link>
     </>
