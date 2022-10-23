@@ -38,7 +38,19 @@ export const UserProvider = ({ children }) => {
     saveUsers(userArray);
   };
 
-  console.log(userArray);
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    if([user.email, user.password].includes('')) {
+      return alert("Todos los datos son obligatorios")
+    }
+    userArray.map((item) => {
+      if (item.email === user.email && item.password === user.password) {
+        return console.log("EXISTO");
+      } else {
+        return console.log("no existo");
+      }
+    });
+  };
 
   const saveUsers = (totalUsers) => {
     localStorage.setItem("users", JSON.stringify(totalUsers));
@@ -50,9 +62,9 @@ export const UserProvider = ({ children }) => {
     const newUser = JSON.stringify(localStorage.getItem("user"))
     newUser && setUser(newUser)
   }
-  // useEffect(() => {
-  //   getSavedUsers()
-  // }, [])
+  useEffect(() => {
+    getSavedUsers()
+  }, [])
 
 
   return (
@@ -63,7 +75,8 @@ export const UserProvider = ({ children }) => {
           handlePassChange,
           handleSubmit,
           getSavedUsers,
-          user
+          handleLoginSubmit,
+          user,
         }}
       >
         {children}
