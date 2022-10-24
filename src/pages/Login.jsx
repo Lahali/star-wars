@@ -40,15 +40,25 @@ const Login = () => {
               onChange={handlePassChange}
             />
           </div>
-          {}
-          <Link to={"/starships"}>
+          <div>
             <button
               className="rounded w-60 p-1 bg-zinc-600 ml-2 mt-5 hover:bg-zinc-400"
               type="submit"
             >
               SEND
             </button>
-          </Link>
+          </div>
+          <div>
+  {/* este botón extra está para que se pueda verificar que el usuario existe, sino, no hacía la función de verificación */}
+            <Link to={"/starships"}>
+              <button
+                className="rounded w-60 p-1 bg-zinc-600 ml-2 mt-5 hover:bg-zinc-400"
+                type="submit"
+              >
+                ENTER!!
+              </button>
+            </Link>
+          </div>
         </form>
       </div>
     </>
