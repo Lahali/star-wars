@@ -2,15 +2,12 @@ import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { useUserData } from "../context/UserProvider";
 
-const ProtectedRoute = () => {
-  const { userArray, userExists } = useUserData;
-  if(userArray) {
-    return <Navigate to="/login"/>
-  }
-  if (userExists === true) {
-    return <Navigate to="/starships"/>
-  }
-  return <Outlet/>;
+const ProtectedRoute = ({ children }) => {
+  const { userLogged } = useUserData;
+
+  userLogged ? <Navigate to="/starships" /> : <Navigate to="/login" />;
+
+  return children ? children : <Outlet />;
 };
 
 export default ProtectedRoute;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import logoYellow from "../assets/images/pngegg.png";
 import { useUserData } from "../context/UserProvider";
 
@@ -24,6 +24,7 @@ const Login = () => {
               className="rounded-sm w-60 p-1 mt-2 bg-zinc-600 active:border-1 border-indigo-700 border-t-pink-100"
               type="text"
               placeholder="user"
+              defaultValue=""
               value={user.email}
               onChange={handleMailChange}
             />
@@ -34,18 +35,19 @@ const Login = () => {
               className="rounded-sm w-60 p-1 mt-2 bg-zinc-600 active:border-1 border-indigo-700 border-t-pink-100"
               type="password"
               placeholder="password"
+              defaultValue=""
               value={user.password}
               onChange={handlePassChange}
             />
           </div>
-        
+          {/* <Link to={"/starships"}> */}
             <button
               className="rounded w-60 p-1 bg-zinc-600 ml-2 mt-5 hover:bg-zinc-400"
               type="submit"
             >
               SEND
             </button>
-          
+          {/* </Link> */}
         </form>
       </div>
     </>
