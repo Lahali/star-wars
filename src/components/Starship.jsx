@@ -6,7 +6,7 @@ const Starship = ({ getShipName, getShipModel, getShipUrl }) => {
   
   return (
     <div className="bg-zinc-800 col-start-2 col-end-6 m-3 items-strech">
-      <Link to={`/starships/${getShipName}/${getId[5]}`}>
+      <Link to={`/${getShipName}/${getId[5]}`}>
         <img
           className="h-28 w-auto float-left mr-4"
           src={`https://starwars-visualguide.com/assets/img/starships/${getId[5]}.jpg`}

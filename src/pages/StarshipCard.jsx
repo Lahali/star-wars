@@ -1,5 +1,4 @@
-import { getByTestId } from "@testing-library/react";
-import React, {useEffect} from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import { useGetData } from "../context/ApiProvider";

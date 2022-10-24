@@ -5,8 +5,8 @@ import starwars from "../assets/images/starwars-logo.png";
 const Header = () => {
  
 
-  const activeLink = "text-yellow-700";
-  const normalLink = "";
+  // const activeClassName = "text-yellow-700";
+  // const normalLink = "";
 
   return (
     <>
@@ -34,12 +34,24 @@ const Header = () => {
         <div className="mx-4 p-2">
           <NavLink
             to={"/starships"}
-            className={({ isActive }) => [isActive ? "underline" : ""].filter(Boolean).join(" ")}
+            className={({isActive}) => (isActive ? "border-b-4 border-indigo-700" : "text-zinc-400")}    
           >
-            <button className="hover:text-white  text-zinc-400">
+            <button className="hover:text-white">
               SPACESHIPS
             </button>
           </NavLink>
+          
+        </div>
+        <div className="mx-4 p-2">
+          <NavLink
+            to={"/planets"}
+            className={({isActive}) => (isActive ? "border-b-4 border-indigo-700" : "text-zinc-400")}    
+          >
+            <button className="hover:text-white">
+              PLANETS
+            </button>
+          </NavLink>
+          
         </div>
       </nav>
     </>

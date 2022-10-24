@@ -24,7 +24,7 @@ const Login = () => {
               className="rounded-sm w-60 p-1 mt-2 bg-zinc-600 active:border-1 border-indigo-700 border-t-pink-100"
               type="text"
               placeholder="user"
-              defaultValue=""
+              // defaultValue=""
               value={user.email}
               onChange={handleMailChange}
             />
@@ -35,19 +35,20 @@ const Login = () => {
               className="rounded-sm w-60 p-1 mt-2 bg-zinc-600 active:border-1 border-indigo-700 border-t-pink-100"
               type="password"
               placeholder="password"
-              defaultValue=""
+              // defaultValue=""
               value={user.password}
               onChange={handlePassChange}
             />
           </div>
-          {/* <Link to={"/starships"}> */}
+          {}
+          <Link to={"/starships"}>
             <button
               className="rounded w-60 p-1 bg-zinc-600 ml-2 mt-5 hover:bg-zinc-400"
               type="submit"
             >
               SEND
             </button>
-          {/* </Link> */}
+          </Link>
         </form>
       </div>
     </>

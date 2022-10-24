@@ -10,8 +10,8 @@ export function useGetData() {
 
 export const ApiProvider = ({ children }) => {
   const [shipList, setShipList] = useState([]);
+  const [planetList, setPlanetList] = useState([]);
   const [page, setPage] = useState(1);
-
 
   const changeNumberPage = (action) => {
     action === "increase" ? setPage(page + 1) : setPage(page - 1);
@@ -27,10 +27,28 @@ export const ApiProvider = ({ children }) => {
       .catch(() => console.log("la has liado"));
   };
 
+  const getPlanetList = () => {
+    axios
+      .get(`https://swapi.dev/api/planets/?page=${page}`)
+      .then((response) => {
+        setPlanetList(response.data.results);
+      })
+      .catch(() => console.log("Algo va mal... fatal..."));
+  };
+
+
   return (
     <div>
       <dataContext.Provider
-        value={{ shipList, getShipList, changeNumberPage, page }}>
+        value={{
+          shipList,
+          getShipList,
+          getPlanetList,
+          planetList,
+          changeNumberPage,
+          page,
+        }}
+      >
         {children}
       </dataContext.Provider>
     </div>
